@@ -1,0 +1,82 @@
+import { Container } from "react-bootstrap";
+import logo from "../../assets/logo.png";
+import { FaFacebook } from "react-icons/fa";
+import { SiInstagram } from "react-icons/si";
+import { TfiTwitter } from "react-icons/tfi";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaPaw } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+const Footer = () => {
+  return (
+    <div className="bg-dark text-light pt-3">
+      <Container>
+        <div className="d-flex justify-content-evenly">
+          <section className="fs-1">
+            <Link to="/error404">
+              <FaFacebook className="me-3 colorFacebook" variant="primary" />
+            </Link>
+            <Link to="/error404">
+              <SiInstagram className="me-3 colorInstagram" />
+            </Link>
+            <Link to="/error404">
+              <TfiTwitter className="me-3" />
+            </Link>
+            <Link to="/error404" className="colorWpp">
+              <FaWhatsapp />
+            </Link>
+          </section>
+        </div>
+        <div className="text-ligh row">
+          <article className="mt-5 container col-lg-4 col-md-4 col-sm-12 mx-0">
+            <h3 className="mb-4">Nosotros</h3>
+            <Link to="/nosotros" className="text-decoration-none text-light">
+              Quienes somos
+            </Link>
+            <hr />
+            <Link to="/contacto" className="text-decoration-none text-light">
+              Contacto
+            </Link>
+            <hr />
+            <Link to="/contacto" className="text-decoration-none text-light">
+              Ubicacion
+            </Link>
+            <hr />
+          </article>
+          <article className="col-lg-4 col-md-4 col-sm-12 mt-5 ps-sm-5">
+            <h3 className="mb-4">Ayuda</h3>
+            <Link to="/error404" className="text-decoration-none text-light">
+            Turnos y Consultas
+            </Link>
+            <hr />
+            <Link to="/error404" className="text-decoration-none text-light">
+              Departamento de cirugías
+            </Link>
+            <hr />
+            <Link to="/error404" className="text-decoration-none text-light">
+              Terminos y condiciones
+            </Link>
+            <hr />
+          </article>
+          <div className="col-lg-4 col-md-4">
+            <Container className="pt-5 logoCentrado">
+              <img
+                src={logo}
+                className="logoFooter mt-lg-0 m-2"
+                alt="logo del sitio"
+              />
+            </Container>
+            <h5 className="text-center mt-3">
+              Tu salud, nuestra prioridad
+            </h5>
+          </div>
+        </div>
+        <div className="pt-2 text-center">
+          <p>&copy;Centro Médico - Todos los derechos reservados</p>
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+export default Footer;

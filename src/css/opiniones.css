@@ -1,0 +1,4 @@
+.opinion{
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, #89f7fe 0%, #66a6ff 64%);
+}
