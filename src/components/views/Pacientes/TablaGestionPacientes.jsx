@@ -43,9 +43,7 @@ function TablaGestionPacientes() {
             <th>Email</th>
             <th>Telefono</th>
             <th>Direccion</th>
-            <th>Nombre Mascota</th>
-            <th>Especie</th>
-            <th>Raza</th>
+            <th>Historia Clinica</th>
             <th>Acciones</th>
           </tr>
         </thead>

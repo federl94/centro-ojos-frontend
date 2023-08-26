@@ -1,6 +1,5 @@
 import React from "react";
 import avatarImage from "../../../assets/admin.png";
-import Button from "react-bootstrap/Button";
 import "../../../css/Administrador.css";
 import { Link } from "react-router-dom";
 

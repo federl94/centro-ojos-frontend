@@ -16,14 +16,14 @@ const CrearPaciente = () => {
       if (respuesta.status === 201) {
         Swal.fire(
           "Paciente creado",
-          `El paciente ${pacienteNuevo.nombrePaciente} fue creado correctamente`,
+          `El paciente ${pacienteNuevo.nombreDueno} fue creado correctamente`,
           "success"
         );
         reset();
       } else {
         Swal.fire(
           "Ocurrio un error",
-          `El paciente ${pacienteNuevo.nombrePaciente} no pudo ser creado`,
+          `El paciente ${pacienteNuevo.nombreDueno} no pudo ser creado`,
           "error"
         );
       }
@@ -63,7 +63,7 @@ const CrearPaciente = () => {
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
-            placeholder="Ej: anisantillan10@gmail.com"
+            placeholder="Ej: algunemailvalido@gmail.com"
             {...register("email", {
               required: "El email es obligatorio",
               maxLength: {
@@ -113,66 +113,26 @@ const CrearPaciente = () => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPaciente">
-          <Form.Label>Nombre Mascota</Form.Label>
+          <Form.Label>Historia clínica</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ej: Bianca"
-            {...register("nombrePaciente", {
-              required: "El nombre de la mascota es obligatorio",
+            placeholder="Ej: dd/mm/aaaa: el paciente asiste a consulta por XXXXXX motivo..."
+            {...register("historiaClinica"/*nombreMascota*/, {
+              required: "La historia clínica es obligatoria",
               minLength: {
-                value: 2,
-                message: "La cantidad minima de carácteres es 2",
+                value: 5,
+                message: "La cantidad minima de carácteres es 5",
               },
               maxLength: {
-                value: 50,
-                message: "La cantidad maxima de carácteres es 50",
+                value: 5000,
+                message: "La cantidad maxima de carácteres es 5000",
               },
             })}
           />
           <Form.Text className="text-danger">
-            {errors.nombrePaciente?.message}
+            {errors.historiaClinica?.message}
           </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formPaciente">
-          <Form.Label>Especie</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Ej: perro"
-            {...register("especie", {
-              required: "La especie es obligatoria",
-              minLength: {
-                value: 2,
-                message: "La cantidad minima de carácteres es 2",
-              },
-              maxLength: {
-                value: 30,
-                message: "La cantidad maxima de carácteres es 30",
-              },
-            })}
-          />
-          <Form.Text className="text-danger">
-            {errors.especie?.message}
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formPaciente">
-          <Form.Label>Raza</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Ej: ovejero belga"
-            {...register("raza", {
-              required: "La raza es obligatoria",
-              minLength: {
-                value: 2,
-                message: "La cantidad minima de carácteres es 2",
-              },
-              maxLength: {
-                value: 50,
-                message: "La cantidad maxima de carácteres es 50",
-              },
-            })}
-          />
-          <Form.Text className="text-danger">{errors.raza?.message}</Form.Text>
-        </Form.Group>
+        </Form.Group>     
         <div className="text-center">
         <Button variant="primary" type="submit">
           Guardar

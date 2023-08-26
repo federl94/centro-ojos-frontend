@@ -1,7 +1,7 @@
 import {  Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { crearTurno } from "../../helpers/queries"; // Asegúrate de tener esta función implementada en queries.js
+import { crearTurno } from "../../helpers/queries";
 import { useNavigate} from "react-router-dom";
 
 const CrearTurno = () => {
@@ -84,12 +84,12 @@ const CrearTurno = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formPaciente">
-          <Form.Label>Veterinario</Form.Label>
+          <Form.Label>Médico</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ej: Dr. Lionel Messi"
-            {...register("nombreVeterinario", {
-              required: "El nombre del veterinario es obligatorio",
+            placeholder="Ej: Dr. Nombre Apellido"
+            {...register("nombreMedico", {
+              required: "El nombre del médico es obligatorio",
               minLength: {
                 value: 2,
                 message: "La cantidad minima de carácteres es 2",
@@ -102,32 +102,10 @@ const CrearTurno = () => {
           />
           <Form.Text className="text-danger">
 
-            {errors.nombreVeterinario?.message}
+            {errors.nombreMedico?.message}
 
           </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formPaciente">
-          <Form.Label>Mascota</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Nombre de la mascota"
-            {...register("nombreMascota", {
-              required: "El nombre de la mascota es obligatorio",
-              minLength: {
-                value: 2,
-                message: "La cantidad minima de carácteres es 2",
-              },
-              maxLength: {
-                value: 50,
-                message: "La cantidad maxima de carácteres es 50",
-              },
-            })}
-          />
-          <Form.Text className="text-danger">
-
-            {errors.nombreMascota?.message}
-          </Form.Text>
-        </Form.Group>
+        </Form.Group>      
         <Form.Group className="mb-3" controlId="formTurno">
   <Form.Label>Hora</Form.Label>
   <Form.Select {...register("hora", {
@@ -174,5 +152,4 @@ const CrearTurno = () => {
     </section>
   );
 };
-
 export default CrearTurno;

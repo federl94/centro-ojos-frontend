@@ -51,8 +51,7 @@ const ItemTurno = ({ turno, setTurnos }) => {
     <tr>
       <td>{turno.nombreDueno}</td>
       <td>{turno.detalleCita}</td>
-      <td>{turno.nombreVeterinario}</td>
-      <td>{turno.nombreMascota}</td>
+      <td>{turno.nombreMedico}</td>
       <td>{turno.hora}</td>
       <td>{turno.fecha}</td>
       <td className="text-center">

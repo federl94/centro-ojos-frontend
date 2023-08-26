@@ -23,9 +23,7 @@ const EditarPaciente = () => {
         setValue("email", respuesta.email);
         setValue("telefono", respuesta.telefono);
         setValue("direccion", respuesta.direccion);
-        setValue("nombrePaciente", respuesta.nombrePaciente);
-        setValue("especie", respuesta.especie);
-        setValue("raza", respuesta.raza);
+        setValue("historiaClinica", respuesta.historiaClinica);
       }
     });
   }, []);
@@ -132,66 +130,26 @@ const EditarPaciente = () => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPaciente">
-          <Form.Label>Nombre Mascota</Form.Label>
+          <Form.Label>Historia clínica</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ej: Bianca"
-            {...register("nombrePaciente", {
-              required: "El nombre de la mascota es obligatorio",
+            placeholder="Ej: dd/mm/aaaa: el paciente asiste a consulta por XXXXXX motivo..."
+            {...register("historiaClinica"/*nombreMascota*/, {
+              required: "La historia clínica es obligatoria",
               minLength: {
-                value: 2,
-                message: "La cantidad minima de carácteres es 2",
+                value: 5,
+                message: "La cantidad minima de carácteres es 5",
               },
               maxLength: {
-                value: 50,
-                message: "La cantidad maxima de carácteres es 50",
+                value: 5000,
+                message: "La cantidad maxima de carácteres es 5000",
               },
             })}
           />
           <Form.Text className="text-danger">
-            {errors.nombrePaciente?.message}
+            {errors.historiaClinica?.message}
           </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formPaciente">
-          <Form.Label>Especie</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Ej: perro"
-            {...register("especie", {
-              required: "La especie es obligatoria",
-              minLength: {
-                value: 2,
-                message: "La cantidad minima de carácteres es 2",
-              },
-              maxLength: {
-                value: 30,
-                message: "La cantidad maxima de carácteres es 30",
-              },
-            })}
-          />
-          <Form.Text className="text-danger">
-            {errors.especie?.message}
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formPaciente">
-          <Form.Label>Raza</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Ej: ovejero belga"
-            {...register("raza", {
-              required: "La raza es obligatoria",
-              minLength: {
-                value: 2,
-                message: "La cantidad minima de carácteres es 2",
-              },
-              maxLength: {
-                value: 50,
-                message: "La cantidad maxima de carácteres es 50",
-              },
-            })}
-          />
-          <Form.Text className="text-danger">{errors.raza?.message}</Form.Text>
-        </Form.Group>
+        </Form.Group>        
         <Button variant="primary" type="submit">
           Guardar
         </Button>

@@ -37,8 +37,7 @@ function TablaGestionTurnos() {
           <tr>
             <th>Nombre</th>
             <th>Detalle de cita</th>
-            <th>Veterinario</th>
-            <th>Mascota</th>
+            <th>Médico</th>
             <th>Hora</th>
             <th>Fecha</th>
             <th>Acciones</th>
