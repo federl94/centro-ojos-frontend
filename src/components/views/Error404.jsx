@@ -1,16 +1,18 @@
 import { Button } from "react-bootstrap";
-import errorCanva from '../../assets/404/errorCanva.png';
+import React from "react";
+import error404 from '../../assets/error404.gif';
 import { Link } from 'react-router-dom';
-import "../../css/error404.css"
+import "../../css/Error404.css"
 
 
 const Error404 = () => {
   return (
-    <section className="error text-center my-0 mt-0 mainSection fondoError">
-      <img src={errorCanva} alt="error404"/>
+    <section className="error text-center mb-5 mainSection">
+      <img src={error404} alt="error404" className="widthGif" />
       <div>
+      <h2 className="f-text mt-3 d-none d-sm-block text-dark">Página no disponible por el momento</h2>
         <Link to="/">
-        <Button variant="default" className="btnError my-3 text-light">Volver al inicio</Button>
+        <Button variant="default" className="btnError mt-3 text-light">Volver al inicio</Button>
         </Link>
       </div>
     </section>
