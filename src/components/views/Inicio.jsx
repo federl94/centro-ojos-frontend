@@ -1,9 +1,9 @@
-import Banner from "./PaginaPrincipal/Banner";
-import Opiniones from "./paginaPrincipal/Opiniones";
-import Planes from "./PaginaPrincipal/Planes";
+import Banner from "./PaginaPrincipal/Banner.jsx";
+import Opiniones from "./paginaPrincipal/Opiniones.jsx";
+import Planes from "./PaginaPrincipal/Planes.jsx";
 import Marcas from "./PaginaPrincipal/Marcas.jsx";
 import Productos from "./PaginaPrincipal/Productos.jsx";
-import Profesionales from "./PaginaPrincipal/Profesionales";
+import Profesionales from "./PaginaPrincipal/Profesionales.jsx";
 import { Container } from "react-bootstrap";
 
 const Inicio = () => {
