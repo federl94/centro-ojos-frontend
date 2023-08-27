@@ -3,7 +3,7 @@ import "./css/app.css";
 import "./css/Administrador.css";
 import "./css/acercaDe.css";
 import "./css/planesMarcas.css";
-import "./css/registro.css";
+import "./css/Registro.css";
 import "./css/opiniones.css";
 import Inicio from "./components/views/Inicio";
 import Contacto from "./components/views/Contacto";
