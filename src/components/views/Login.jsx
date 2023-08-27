@@ -14,7 +14,6 @@ const Login = ({ setUsuarioLogueado }) => {
     reset,
   } = useForm();
   const navegacion = useNavigate();
-
   const onSubmit = (usuario) => {
     iniciarSesion(usuario).then((respuesta) => {
       if (respuesta) {
