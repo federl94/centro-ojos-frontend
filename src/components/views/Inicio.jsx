@@ -5,7 +5,7 @@ import Marcas from "./PaginaPrincipal/Marcas.jsx";
 import Productos from "./PaginaPrincipal/Productos.jsx";
 import Profesionales from "./PaginaPrincipal/Profesionales.jsx";
 import { Container } from "react-bootstrap";
-
+ 
 const Inicio = () => {
   return (
     <div className="fondoGeneral tipografia">
