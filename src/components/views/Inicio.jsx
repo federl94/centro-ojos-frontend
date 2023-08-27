@@ -1,7 +1,5 @@
-import Banner from "./paginaPrincipal/Banner";
+import Banner from "./PaginaPrincipal/Banner";
 import Opiniones from "./paginaPrincipal/Opiniones";
-import "../../css/banner.css";
-import "../../css/opiniones.css";
 import Planes from "./PaginaPrincipal/Planes";
 import Marcas from "./PaginaPrincipal/Marcas.jsx";
 import Productos from "./PaginaPrincipal/Productos.jsx";
