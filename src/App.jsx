@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/app.css";
-import "./css/administrador.css";
+import "./css/Administrador.css";
 import "./css/acercaDe.css";
 import "./css/planesMarcas.css";
 import "./css/registro.css";
