@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/app.css";
-import "./css/Administrador.css";
+import "./css/administrador.css";
 import "./css/acercaDe.css";
 import "./css/planesMarcas.css";
-import "./css/Registro.css";
+import "./css/registro.css";
 import "./css/opiniones.css";
 import Inicio from "./components/views/Inicio";
 import Contacto from "./components/views/Contacto";
