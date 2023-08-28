@@ -1,5 +1,5 @@
 import Banner from "./PaginaPrincipal/Banner.jsx";
-import Opiniones from '../paginaPrincipal/Opiniones';
+import Opiniones from "./paginaPrincipal/Opiniones";
 import Planes from "./PaginaPrincipal/Planes.jsx";
 import Marcas from "./PaginaPrincipal/Marcas.jsx";
 import Productos from "./PaginaPrincipal/Productos.jsx";
