@@ -1,6 +1,6 @@
 import React from "react";
 import avatarImage from "../../../assets/admin.png";
-import "../../../css/Administrador.css";
+import "../../../css/administrador.css";
 import { Link } from "react-router-dom";
 
 
