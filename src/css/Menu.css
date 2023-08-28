@@ -83,10 +83,10 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1000; /* Asegura que el menú esté por encima del contenido */
+  z-index: 1000;
 }
 
 .menu ul {
@@ -106,5 +106,5 @@ body {
 }
 
 .content {
-  padding-top: 100px; /* Espacio para el menú fijo */
+  padding-top: 100px;
 }
