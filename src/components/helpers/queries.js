@@ -66,8 +66,7 @@ export const crearPaciente = async (paciente) => {
     const respuesta = await fetch(URL_paciente, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "x-token": JSON.parse(sessionStorage.getItem('usuario')).token
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(paciente),
     });
@@ -98,8 +97,7 @@ export const crearTurno = async (nuevoTurno) => {
     const response = await fetch(URL_turno, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "x-token": JSON.parse(sessionStorage.getItem('usuario')).token
+        "Content-Type": "application/json"        
       },
       body: JSON.stringify(nuevoTurno),
     });
@@ -116,8 +114,7 @@ export const editarPaciente = async (paciente, id) => {
     const respuesta = await fetch(URL_paciente + "/" + id, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
-        "x-token": JSON.parse(sessionStorage.getItem('usuario')).token
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(paciente),
     });
@@ -148,8 +145,7 @@ export const editarTurno = async (turno, id) => {
     const respuesta = await fetch(URL_turno + "/" + id, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
-        "x-token": JSON.parse(sessionStorage.getItem('usuario')).token
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(turno),
     });
@@ -165,9 +161,6 @@ export const borrarPaciente = async (id) => {
   try {
     const respuesta = await fetch(URL_paciente + "/" + id, {
       method: "DELETE",
-      headers:{
-        "x-token": JSON.parse(sessionStorage.getItem('usuario')).token
-    },
     });
     return respuesta;
   } catch (error) {
@@ -189,9 +182,6 @@ export const borrarTurno = async (id) => {
   try {
     const respuesta = await fetch(URL_turno + "/" + id, {
       method: "DELETE",
-      headers:{
-        "x-token": JSON.parse(sessionStorage.getItem('usuario')).token
-    },
     });
     return respuesta;
   } catch (error) {
