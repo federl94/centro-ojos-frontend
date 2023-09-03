@@ -45,6 +45,13 @@ const Administrador = () => {
                 >
                   Usuarios
                 </Link>
+                <Link
+                  to="admmedicos/"
+
+                  className="btn btn-primary text-decoration-none text-light"
+                >
+                  Médicos
+                </Link>
               </div>
             </div>
             <p>Estos son los turnos reservados de los próximos días:</p>
