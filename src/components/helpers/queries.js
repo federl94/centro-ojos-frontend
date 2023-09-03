@@ -1,6 +1,7 @@
 const URL_usuario = import.meta.env.VITE_API_USUARIOS;
 const URL_turno = import.meta.env.VITE_API_TURNOS;
 const URL_paciente = import.meta.env.VITE_API_PACIENTES;
+const URL_medico = import.meta.env.VITE_API_MEDICOS;
 
 export const iniciarSesion = async (usuario) => {
   try {
@@ -33,6 +34,16 @@ export const obtenerListaPacientes = async () => {
     console.log(error);
   }
 };
+export const obtenerListaMedicos = async () => {
+  try {
+    const respuesta = await fetch(URL_medico);
+    const listaMedicos = await respuesta.json();
+    return listaMedicos;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const obtenerListaUsuarios = async () => {
   try {
     const respuesta = await fetch(URL_usuario);
@@ -69,6 +80,20 @@ export const crearPaciente = async (paciente) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(paciente),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const crearMedico = async (medico) => {
+  try {
+    const respuesta = await fetch(URL_medico, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(medico),
     });
     return respuesta;
   } catch (error) {
@@ -124,6 +149,21 @@ export const editarPaciente = async (paciente, id) => {
   }
 };
 
+export const editarMedico = async (medico, id) => {
+  try {
+    const respuesta = await fetch(URL_medico + "/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(medico),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const editarUsuario = async (usuario, id) => {
   try {
     const respuesta = await fetch(URL_usuario + "/usuario/" + id, {
@@ -167,6 +207,18 @@ export const borrarPaciente = async (id) => {
     console.log(error);
   }
 };
+
+export const borrarMedico = async (id) => {
+  try {
+    const respuesta = await fetch(URL_medico + "/" + id, {
+      method: "DELETE",
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const borrarUsuario = async (id) => {
   try {
     const respuesta = await fetch(URL_usuario + "/usuario/" + id, {
@@ -196,6 +248,16 @@ export const obtenerPaciente = async (id) => {
     const respuesta = await fetch(URL_paciente + "/" + id);
     const paciente = await respuesta.json();
     return paciente;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const obtenerMedico = async (id) => {
+  try {
+    const respuesta = await fetch(URL_medico + "/" + id);
+    const medico = await respuesta.json();
+    return medico;
   } catch (error) {
     console.log(error);
   }

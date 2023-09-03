@@ -67,7 +67,7 @@ function Menu({ usuarioLogueado, setUsuarioLogueado }) {
           >
             <Offcanvas.Header closeButton className="fondoMenu">
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} className="fw-bold">
-                Huellitas Center
+                Centro Oftalmológico
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className="fondoMenu">
