@@ -50,6 +50,13 @@ const ColumnaIzquierda = () => {
             >
               Staff Médico
             </Link>
+            <Link
+              relative
+              to="../admobrassociales"
+              className="btn btn-success text-decoration-none text-light my-2"
+            >
+              Obras Sociales
+            </Link>
 
 
           </div>

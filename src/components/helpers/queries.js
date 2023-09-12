@@ -2,6 +2,8 @@ const URL_usuario = import.meta.env.VITE_API_USUARIOS;
 const URL_turno = import.meta.env.VITE_API_TURNOS;
 const URL_paciente = import.meta.env.VITE_API_PACIENTES;
 const URL_medico = import.meta.env.VITE_API_MEDICOS;
+const URL_obrasocial = import.meta.env.VITE_API_OBRASOCIAL;
+
 
 export const iniciarSesion = async (usuario) => {
   try {
@@ -39,6 +41,15 @@ export const obtenerListaMedicos = async () => {
     const respuesta = await fetch(URL_medico);
     const listaMedicos = await respuesta.json();
     return listaMedicos;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const obtenerListaObrasSociales = async () => {
+  try {
+    const respuesta = await fetch(URL_obrasocial);
+    const listaObrasSociales = await respuesta.json();
+    return listaObrasSociales;
   } catch (error) {
     console.log(error);
   }
@@ -100,6 +111,21 @@ export const crearMedico = async (medico) => {
     console.log(error);
   }
 };
+export const crearObraSocial = async (obrasocial) => {
+  try {
+    const respuesta = await fetch(URL_obrasocial, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obrasocial),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const crearUsuario = async (usuario) => {
   try {
     const respuesta = await fetch(URL_usuario + "/nuevo", {
@@ -164,6 +190,21 @@ export const editarMedico = async (medico, id) => {
   }
 };
 
+export const editarObraSocial = async (obrasocial, id) => {
+  try {
+    const respuesta = await fetch(URL_obrasocial + "/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(obrasocial),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const editarUsuario = async (usuario, id) => {
   try {
     const respuesta = await fetch(URL_usuario + "/usuario/" + id, {
@@ -219,6 +260,17 @@ export const borrarMedico = async (id) => {
   }
 };
 
+export const borrarObraSocial = async (id) => {
+  try {
+    const respuesta = await fetch(URL_obrasocial + "/" + id, {
+      method: "DELETE",
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const borrarUsuario = async (id) => {
   try {
     const respuesta = await fetch(URL_usuario + "/usuario/" + id, {
@@ -258,6 +310,16 @@ export const obtenerMedico = async (id) => {
     const respuesta = await fetch(URL_medico + "/" + id);
     const medico = await respuesta.json();
     return medico;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const obtenerObraSocial = async (id) => {
+  try {
+    const respuesta = await fetch(URL_obrasocial + "/" + id);
+    const obrasocial = await respuesta.json();
+    return obrasocial;
   } catch (error) {
     console.log(error);
   }

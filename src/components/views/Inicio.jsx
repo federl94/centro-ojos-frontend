@@ -1,5 +1,4 @@
 import Banner from "./PaginaPrincipal/Banner.jsx";
-/* import Opiniones from "./paginaPrincipal/Opiniones.jsx"; */
 import Planes from "./PaginaPrincipal/Planes.jsx";
 import Marcas from "./PaginaPrincipal/Marcas.jsx";
 import Productos from "./PaginaPrincipal/Productos.jsx";
@@ -15,8 +14,7 @@ const Inicio = () => {
       <Planes></Planes>
       <Profesionales />
       <Productos></Productos>
-{/*       <Opiniones />
- */}      <Marcas></Marcas>
+      <Marcas></Marcas>
     </div>
   );
 };

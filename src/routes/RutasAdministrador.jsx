@@ -11,6 +11,9 @@ import CrearTurno from "../components/views/Turnos/CrearTurno";
 import CrearMedico from "../components/views/Medicos/CrearMedico";
 import EditarMedico from "../components/views/Medicos/EditarMedico";
 import AdmMedicos from "../components/views/AdmMedicos";
+import CrearObraSocial from "../components/views/ObrasSociales/CrearObraSocial";
+import EditarObraSocial from "../components/views/ObrasSociales/EditarObraSocial";
+import AdmObrasSociales from "../components/views/AdmObrasSociales";
 
 
 const RutasAdministrador = () => {
@@ -72,6 +75,21 @@ const RutasAdministrador = () => {
           exact
           path="admmedicos/"
           element={<AdmMedicos></AdmMedicos>}
+        ></Route>
+        <Route
+          exact
+          path="admobrassociales/"
+          element={<AdmObrasSociales></AdmObrasSociales>}
+        ></Route>
+        <Route
+          exact
+          path="admobrassociales/crear-obrasocial"
+          element={<CrearObraSocial></CrearObraSocial>}
+        ></Route>
+        <Route
+          exact
+          path="admobrassociales/editar-obrasocial/:id"
+          element={<EditarObraSocial></EditarObraSocial>}
         ></Route>
       </Routes>
     </>
