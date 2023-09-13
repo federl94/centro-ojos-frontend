@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #F7E3C9;
+    background-color: #ffffff;
 }
 
 .mainSection{
@@ -18,7 +18,7 @@
 .widthGif {
     max-width: 100%;
     height: auto;
-    object-fit: contain; /* Esto mantiene la proporción del GIF y lo ajusta al contenedor */
+    object-fit: contain;
   }
 
 @media screen and (max-width: 768px) {

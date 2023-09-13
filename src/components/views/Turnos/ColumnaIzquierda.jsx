@@ -13,47 +13,47 @@ const ColumnaIzquierda = () => {
         </div>
         <div className="contenido">
           <img src={avatarImage} alt="Avatar" className="avatar" />
-          <div className="botones">
+          <div className="d-grid">
 
             <Link
               relative
               to="../"
-              className="btn btn-success text-decoration-none text-light my-2"
+              className="btn btn-secondary text-decoration-none text-light my-2"
             >
               Inicio
             </Link>
             <Link
               relative
               to="../admPacientes"
-              className="btn btn-success text-decoration-none text-light my-2"
+              className="btn btn-secondary text-decoration-none text-light my-2"
             >
               Pacientes
             </Link>
             <Link
               relative
               to="../admturnos"
-              className="btn btn-success text-decoration-none text-light my-2"
+              className="btn btn-secondary text-decoration-none text-light my-2"
             >
               Turnos
             </Link>
             <Link
               relative
               to="../admusuarios"
-              className="btn btn-success text-decoration-none text-light my-2"
+              className="btn btn-secondary text-decoration-none text-light my-2"
             >
               Usuarios
             </Link>
             <Link
               relative
               to="../admmedicos"
-              className="btn btn-success text-decoration-none text-light my-2"
+              className="btn btn-secondary text-decoration-none text-light my-2"
             >
               Staff Médico
             </Link>
             <Link
               relative
               to="../admobrassociales"
-              className="btn btn-success text-decoration-none text-light my-2"
+              className="btn btn-secondary text-decoration-none text-light my-2"
             >
               Obras Sociales
             </Link>
