@@ -2,7 +2,7 @@ import React from "react";
 import avatarImage from "../../../assets/admin.png";
 import "../../../css/administrador.css";
 import { Link } from "react-router-dom";
-
+import { Dropdown } from "react-bootstrap";
 
 const ColumnaIzquierda = () => {
   return (
@@ -14,7 +14,6 @@ const ColumnaIzquierda = () => {
         <div className="contenido">
           <img src={avatarImage} alt="Avatar" className="avatar" />
           <div className="d-grid">
-
             <Link
               relative
               to="../"
@@ -57,7 +56,16 @@ const ColumnaIzquierda = () => {
             >
               Obras Sociales
             </Link>
-
+            <Dropdown className="d-grid mt-2">
+  <Dropdown.Toggle variant="secondary">
+    Personal
+  </Dropdown.Toggle>
+  <Dropdown.Menu className="dropdown-menu">
+    <Dropdown.Item href="../Error404" className="dropdown-item">Lista empleados</Dropdown.Item>
+    <Dropdown.Item href="../Error404" className="dropdown-item">Sueldos</Dropdown.Item>
+    <Dropdown.Item href="../Error404" className="dropdown-item">Vacaciones</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
 
           </div>
         </div>
