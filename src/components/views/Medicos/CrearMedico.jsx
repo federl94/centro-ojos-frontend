@@ -12,7 +12,7 @@ const CrearMedico = () => {
     formState: { errors },
     reset,
   } = useForm();
-  
+
   // Estado local para almacenar las obras sociales
   const [obrasSociales, setObrasSociales] = useState([]);
 
@@ -24,7 +24,11 @@ const CrearMedico = () => {
           // Almacena las obras sociales en el estado local
           setObrasSociales(respuesta);
         } else {
-          Swal.fire("Error", "Intente realizar esta operación en unos minutos", "error");
+          Swal.fire(
+            "Error",
+            "Intente realizar esta operación en unos minutos",
+            "error"
+          );
         }
       })
       .catch((error) => {
@@ -84,10 +88,64 @@ const CrearMedico = () => {
                   {errors.nombreMedico?.message}
                 </Form.Text>
               </Form.Group>
+              <Form.Group className="mb-3" controlId="formPaciente">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Ej: juanperez10@gmail.com"
+                  {...register("email", {
+                    required: "El email es obligatorio",
+                    maxLength: {
+                      value: 50,
+                      message: "La cantidad maxima de carácteres es 50",
+                    },
+                  })}
+                />
+                <Form.Text className="text-danger">
+                  {errors.email?.message}
+                </Form.Text>
+              </Form.Group>
 
-              {/* Resto del formulario, incluyendo el campo de Obras Sociales */}
-              {/* ... */}
+              <Form.Group className="mb-3" controlId="formPaciente">
+                <Form.Label>Telefono</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Ej: 3816810178"
+                  {...register("telefono", {
+                    required: "El telefono del medico es obligatorio",
+                    pattern: {
+                      value: /^[0-9]{10}$/,
+                      message:
+                        "Ingresa un número de teléfono válido (10 dígitos)",
+                    },
+                  })}
+                />
+                <Form.Text className="text-danger">
+                  {errors.telefono?.message}
+                </Form.Text>
+              </Form.Group>
 
+              <Form.Group className="mb-3" controlId="formPaciente">
+                <Form.Label>Especialidad</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ej: Rivadavia 1050"
+                  {...register("especialidad", {
+                    required: "La especialidad del médico es obligatoria",
+                    minLength: {
+                      value: 3,
+                      message: "La cantidad minima de carácteres es 3",
+                    },
+                    maxLength: {
+                      value: 40,
+                      message: "La cantidad maxima de carácteres es 40",
+                    },
+                  })}
+                />
+                <Form.Text className="text-danger">
+                  {errors.especialidad?.message}
+                </Form.Text>
+              </Form.Group>
               <Form.Group className="mb-3" controlId="formPaciente">
                 <Form.Label>Obras Sociales</Form.Label>
                 <Form.Control
