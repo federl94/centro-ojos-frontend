@@ -28,19 +28,13 @@ const ColumnaIzquierda = () => {
             >
               Pacientes
             </Link>
+                        
             <Link
               relative
               to="../admturnos"
               className="btn btn-secondary text-decoration-none text-light my-2"
             >
               Turnos
-            </Link>
-            <Link
-              relative
-              to="../admusuarios"
-              className="btn btn-secondary text-decoration-none text-light my-2"
-            >
-              Usuarios
             </Link>
             <Link
               relative
@@ -51,22 +45,47 @@ const ColumnaIzquierda = () => {
             </Link>
             <Link
               relative
+              to="../admmedicos"
+              className="btn btn-secondary text-decoration-none text-light my-2"
+            >
+              Horarios de los médicos
+            </Link>
+            <Link
+              relative
               to="../admobrassociales"
               className="btn btn-secondary text-decoration-none text-light my-2"
             >
               Obras Sociales
             </Link>
+            <Link
+              relative
+              to="../admusuarios"
+              className="btn btn-secondary text-decoration-none text-light my-2"
+            >
+              Usuarios
+            </Link>
+            <Link
+              relative
+              to="../calendario"
+              className="btn btn-secondary text-decoration-none text-light my-2"
+            >
+              Calendario
+            </Link>
             <Dropdown className="d-grid mt-2">
-  <Dropdown.Toggle variant="secondary">
-    Personal
-  </Dropdown.Toggle>
-  <Dropdown.Menu className="dropdown-menu">
-    <Dropdown.Item href="../Error404" className="dropdown-item">Lista empleados</Dropdown.Item>
-    <Dropdown.Item href="../Error404" className="dropdown-item">Sueldos</Dropdown.Item>
-    <Dropdown.Item href="../Error404" className="dropdown-item">Vacaciones</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
-
+              <Dropdown.Toggle variant="secondary">Personal</Dropdown.Toggle>
+              <Dropdown.Menu className="dropdown-menu">
+                <Dropdown.Item href="../Error404" className="dropdown-item">
+                  Lista empleados
+                </Dropdown.Item>
+                <Dropdown.Item href="../Error404" className="dropdown-item">
+                  Asistencia
+                </Dropdown.Item>
+                <Dropdown.Item href="../Error404" className="dropdown-item">
+                  Vacaciones
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            
           </div>
         </div>
         <span>Version 1.0.1</span>

@@ -8,11 +8,17 @@ function TablaGestionMedicos() {
   const pageSize = 3;
   const [medicos, setMedicos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [diasTrabajo, setDiasTrabajo] = useState([]); // Estado para almacenar los días de trabajo
 
   useEffect(() => {
     obtenerListaMedicos().then((respuesta) => {
       if (respuesta) {
         setMedicos(respuesta);
+
+        // Obtener los días de trabajo del primer médico en la lista
+        if (respuesta.length > 0) {
+          setDiasTrabajo(respuesta[0].diasTrabajo || []);
+        }
       } else {
         Swal.fire(
           "Error",
@@ -44,6 +50,7 @@ function TablaGestionMedicos() {
             <th>Telefono</th>
             <th>Especialidad</th>
             <th>Obras Sociales</th>
+            <th>Días que trabaja</th>
             <th>Acciones</th>
           </tr>
         </thead>

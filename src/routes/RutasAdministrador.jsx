@@ -14,7 +14,7 @@ import AdmMedicos from "../components/views/AdmMedicos";
 import CrearObraSocial from "../components/views/ObrasSociales/CrearObraSocial";
 import EditarObraSocial from "../components/views/ObrasSociales/EditarObraSocial";
 import AdmObrasSociales from "../components/views/AdmObrasSociales";
-
+import Calendario from "../components/views/Calendario";
 
 const RutasAdministrador = () => {
   return (
@@ -90,6 +90,11 @@ const RutasAdministrador = () => {
           exact
           path="admobrassociales/editar-obrasocial/:id"
           element={<EditarObraSocial></EditarObraSocial>}
+        ></Route>
+        <Route
+          exact
+          path="calendario/"
+          element={<Calendario></Calendario>}
         ></Route>
       </Routes>
     </>

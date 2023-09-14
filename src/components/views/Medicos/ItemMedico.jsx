@@ -53,6 +53,7 @@ const ItemMedico = ({medico, setMedico}) => {
         <td>{medico.telefono}</td>
         <td>{medico.especialidad}</td>
         <td>{medico.obrasSociales}</td>
+        <td>{medico.horarios}</td>
         <td className='text-center'>
             <Link className="mx-3 p-2 px-2 mb-1 btn btn-primary" to={"editar-medico/"+medico._id}><TfiPencil /></Link>
         <Button variant="danger mt-1" onClick={borrar}><TfiTrash /></Button>

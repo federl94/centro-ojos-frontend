@@ -15,6 +15,7 @@ const CrearMedico = () => {
 
   // Estado local para almacenar las obras sociales
   const [obrasSociales, setObrasSociales] = useState([]);
+  const [diasTrabajo, setDiasTrabajo] = useState([]); // Estado para almacenar los días de trabajo
 
   useEffect(() => {
     // Llamar a la función para obtener la lista de obras sociales
@@ -37,7 +38,12 @@ const CrearMedico = () => {
   }, []);
 
   const onSubmit = (medicoNuevo) => {
-    console.log(medicoNuevo);
+    // Obtener los días seleccionados en un array
+    const diasSeleccionados = medicoNuevo.diasTrabajo || [];
+
+    // Asignar los días seleccionados al objeto medicoNuevo
+    medicoNuevo.diasTrabajo = diasSeleccionados;
+
     crearMedico(medicoNuevo).then((respuesta) => {
       if (respuesta.status === 201) {
         Swal.fire(
@@ -169,6 +175,50 @@ const CrearMedico = () => {
                 <Form.Text className="text-danger">
                   {errors.obrasSociales?.message}
                 </Form.Text>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Días que trabaja</Form.Label>
+                <br />
+                <Form.Check
+                  inline
+                  label="Lunes"
+                  type="checkbox"
+                  {...register("diasTrabajo")}
+                  value="Lunes"
+                  onChange={(e) => handleDiasTrabajoChange("Lunes", e)}
+                />
+                <Form.Check
+                  inline
+                  label="Martes"
+                  type="checkbox"
+                  {...register("diasTrabajo")}
+                  value="Martes"
+                  onChange={(e) => handleDiasTrabajoChange("Martes", e)}
+                />
+                <Form.Check
+                  inline
+                  label="Miércoles"
+                  type="checkbox"
+                  {...register("diasTrabajo")}
+                  value="Miércoles"
+                  onChange={(e) => handleDiasTrabajoChange("Miércoles", e)}
+                />
+                <Form.Check
+                  inline
+                  label="Jueves"
+                  type="checkbox"
+                  {...register("diasTrabajo")}
+                  value="Jueves"
+                  onChange={(e) => handleDiasTrabajoChange("Jueves", e)}
+                />
+                <Form.Check
+                  inline
+                  label="Viernes"
+                  type="checkbox"
+                  {...register("diasTrabajo")}
+                  value="Viernes"
+                  onChange={(e) => handleDiasTrabajoChange("Viernes", e)}
+                />
               </Form.Group>
 
               <div className="text-center">

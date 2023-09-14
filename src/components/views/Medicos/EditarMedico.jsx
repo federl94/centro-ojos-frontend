@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { editarMedico, obtenerMedico } from "../../helpers/queries";
+import { obtenerListaObrasSociales } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
 const EditarMedico = () => {
@@ -12,9 +13,13 @@ const EditarMedico = () => {
     formState: { errors },
     reset,
     setValue,
+    getValues, // Agrega esta función
   } = useForm();
   const { id } = useParams();
   const navegacion = useNavigate();
+
+  const [obrasSociales, setObrasSociales] = useState([]);
+  const [diasTrabajo, setDiasTrabajo] = useState([]); // Estado para almacenar los días de trabajo
 
   useEffect(() => {
     obtenerMedico(id).then((respuesta) => {
@@ -24,12 +29,39 @@ const EditarMedico = () => {
         setValue("telefono", respuesta.telefono);
         setValue("especialidad", respuesta.especialidad);
         setValue("obrasSociales", respuesta.obrasSociales);
+        setValue("horarios", respuesta.horarios);
+
+        // Obtener los días de trabajo del médico y almacenarlos en el estado
+        setDiasTrabajo(respuesta.diasTrabajo || []);
       }
     });
-  }, []);
+
+    obtenerListaObrasSociales()
+      .then((respuesta) => {
+        if (respuesta && Array.isArray(respuesta)) {
+          setObrasSociales(respuesta);
+        } else {
+          Swal.fire(
+            "Error",
+            "Intente realizar esta operación en unos minutos",
+            "error"
+          );
+        }
+      })
+      .catch((error) => {
+        console.error("Error al obtener obras sociales:", error);
+      });
+  }, [id, setValue]);
 
   const onSubmit = (medicoEditado) => {
-    console.log(medicoEditado);
+    // Obtener los días seleccionados en un array
+    const diasSeleccionados = Object.keys(getValues("diasTrabajo")).filter(
+      (key) => getValues("diasTrabajo")[key]
+    );
+
+    // Asignar los días seleccionados al objeto medicoEditado
+    medicoEditado.diasTrabajo = diasSeleccionados;
+
     editarMedico(medicoEditado, id).then((respuesta) => {
       if (respuesta) {
         Swal.fire(
@@ -130,28 +162,68 @@ const EditarMedico = () => {
             {errors.especialidad?.message}
           </Form.Text>
         </Form.Group>
-        
+
         <Form.Group className="mb-3" controlId="formPaciente">
           <Form.Label>Obras Sociales</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="Prensa, SanCor..."
+            as="select"
             {...register("obrasSociales", {
               required: "La Obra Social es obligatoria",
-              minLength: {
-                value: 3,
-                message: "La cantidad minima de carácteres es 3",
-              },
-              maxLength: {
-                value: 200,
-                message: "La cantidad maxima de carácteres es 200",
-              },
             })}
-          />
+          >
+            <option value="" disabled>
+              Seleccione una Obra Social
+            </option>
+            {obrasSociales.map((obraSocial) => (
+              <option key={obraSocial._id} value={obraSocial.nombreObraSocial}>
+                {obraSocial.nombreObraSocial}
+              </option>
+            ))}
+          </Form.Control>
           <Form.Text className="text-danger">
             {errors.obrasSociales?.message}
           </Form.Text>
-        </Form.Group>        
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Días que trabaja</Form.Label>
+          <br />
+          <Form.Check
+            inline
+            label="Lunes"
+            type="checkbox"
+            {...register("diasTrabajo.Lunes")}
+            defaultChecked={diasTrabajo.includes("Lunes")} // Marcar el checkbox si el día está en el array
+          />
+          <Form.Check
+            inline
+            label="Martes"
+            type="checkbox"
+            {...register("diasTrabajo.Martes")}
+            defaultChecked={diasTrabajo.includes("Martes")}
+          />
+          <Form.Check
+            inline
+            label="Miércoles"
+            type="checkbox"
+            {...register("diasTrabajo.Miércoles")}
+            defaultChecked={diasTrabajo.includes("Miércoles")}
+          />
+          <Form.Check
+            inline
+            label="Jueves"
+            type="checkbox"
+            {...register("diasTrabajo.Jueves")}
+            defaultChecked={diasTrabajo.includes("Jueves")}
+          />
+          <Form.Check
+            inline
+            label="Viernes"
+            type="checkbox"
+            {...register("diasTrabajo.Viernes")}
+            defaultChecked={diasTrabajo.includes("Viernes")}
+          />
+        </Form.Group>
         <Button variant="primary" type="submit">
           Guardar
         </Button>
