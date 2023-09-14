@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
@@ -13,13 +13,13 @@ const EditarMedico = () => {
     formState: { errors },
     reset,
     setValue,
-    getValues, // Agrega esta función
+    getValues,
   } = useForm();
   const { id } = useParams();
   const navegacion = useNavigate();
 
   const [obrasSociales, setObrasSociales] = useState([]);
-  const [diasTrabajo, setDiasTrabajo] = useState([]); // Estado para almacenar los días de trabajo
+  const [diasTrabajo, setDiasTrabajo] = useState([]);
 
   useEffect(() => {
     obtenerMedico(id).then((respuesta) => {
@@ -65,8 +65,8 @@ const EditarMedico = () => {
     editarMedico(medicoEditado, id).then((respuesta) => {
       if (respuesta) {
         Swal.fire(
-          "Medico editado",
-          `El medico ${medicoEditado.nombreMedico} se editó correctamente`,
+          "Médico editado",
+          `El médico ${medicoEditado.nombreMedico} se editó correctamente`,
           "success"
         );
         reset();
@@ -74,7 +74,7 @@ const EditarMedico = () => {
       } else {
         Swal.fire(
           "Ocurrió un error",
-          `El medico ${medicoEditado.nombreMedico} no pudo ser editado`,
+          `El médico ${medicoEditado.nombreMedico} no pudo ser editado`,
           "error"
         );
       }
@@ -83,7 +83,7 @@ const EditarMedico = () => {
 
   return (
     <section className="container mainSection">
-      <h1 className="display-4 mt-5">Editar medico</h1>
+      <h1 className="display-4 mt-5">Editar médico</h1>
       <hr />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3" controlId="formPaciente">

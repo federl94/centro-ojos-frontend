@@ -13,9 +13,9 @@ const CrearMedico = () => {
     reset,
   } = useForm();
 
-  // Estado local para almacenar las obras sociales
+  // Estado local para almacenar las obras sociales y los días de trabajo
   const [obrasSociales, setObrasSociales] = useState([]);
-  const [diasTrabajo, setDiasTrabajo] = useState([]); // Estado para almacenar los días de trabajo
+  const [diasTrabajo, setDiasTrabajo] = useState([]);
 
   useEffect(() => {
     // Llamar a la función para obtener la lista de obras sociales
@@ -37,24 +37,34 @@ const CrearMedico = () => {
       });
   }, []);
 
-  const onSubmit = (medicoNuevo) => {
-    // Obtener los días seleccionados en un array
-    const diasSeleccionados = medicoNuevo.diasTrabajo || [];
+  // Define la función para manejar cambios en los días de trabajo
+  const handleDiasTrabajoChange = (event) => {
+    const { value, checked } = event.target;
 
-    // Asignar los días seleccionados al objeto medicoNuevo
-    medicoNuevo.diasTrabajo = diasSeleccionados;
+    if (checked) {
+      // Agrega el día seleccionado al array
+      setDiasTrabajo([...diasTrabajo, value]);
+    } else {
+      // Elimina el día seleccionado del array
+      setDiasTrabajo(diasTrabajo.filter((dia) => dia !== value));
+    }
+  };
+
+  const onSubmit = (medicoNuevo) => {
+    // Agrega los días de trabajo al objeto medicoNuevo
+    medicoNuevo.diasTrabajo = diasTrabajo;
 
     crearMedico(medicoNuevo).then((respuesta) => {
       if (respuesta.status === 201) {
         Swal.fire(
-          "Medico creado",
+          "Médico creado",
           `El médico ${medicoNuevo.nombreMedico} fue creado correctamente`,
           "success"
         );
         reset();
       } else {
         Swal.fire(
-          "Ocurrio un error",
+          "Ocurrió un error",
           `El médico ${medicoNuevo.nombreMedico} no pudo ser creado`,
           "error"
         );
@@ -65,7 +75,7 @@ const CrearMedico = () => {
   return (
     <section className="mainSection fondoRegistro titulos">
       <div className="container">
-        <h1 className="display-4 mt-5 text-center titulos">Nuevo Medico</h1>
+        <h1 className="display-4 mt-5 text-center titulos">Nuevo Médico</h1>
         <hr />
         <Row className="justify-content-center w-100 ps-4">
           <Col xs={12} sm={9} md={4}>
@@ -183,41 +193,36 @@ const CrearMedico = () => {
                   inline
                   label="Lunes"
                   type="checkbox"
-                  {...register("diasTrabajo")}
+                  onChange={handleDiasTrabajoChange}
                   value="Lunes"
-                  onChange={(e) => handleDiasTrabajoChange("Lunes", e)}
                 />
                 <Form.Check
                   inline
                   label="Martes"
                   type="checkbox"
-                  {...register("diasTrabajo")}
+                  onChange={handleDiasTrabajoChange}
                   value="Martes"
-                  onChange={(e) => handleDiasTrabajoChange("Martes", e)}
                 />
                 <Form.Check
                   inline
                   label="Miércoles"
                   type="checkbox"
-                  {...register("diasTrabajo")}
+                  onChange={handleDiasTrabajoChange}
                   value="Miércoles"
-                  onChange={(e) => handleDiasTrabajoChange("Miércoles", e)}
                 />
                 <Form.Check
                   inline
                   label="Jueves"
                   type="checkbox"
-                  {...register("diasTrabajo")}
+                  onChange={handleDiasTrabajoChange}
                   value="Jueves"
-                  onChange={(e) => handleDiasTrabajoChange("Jueves", e)}
                 />
                 <Form.Check
                   inline
                   label="Viernes"
                   type="checkbox"
-                  {...register("diasTrabajo")}
+                  onChange={handleDiasTrabajoChange}
                   value="Viernes"
-                  onChange={(e) => handleDiasTrabajoChange("Viernes", e)}
                 />
               </Form.Group>
 
