@@ -13,16 +13,13 @@ const CrearMedico = () => {
     reset,
   } = useForm();
 
-  // Estado local para almacenar las obras sociales y los días de trabajo
   const [obrasSociales, setObrasSociales] = useState([]);
   const [diasTrabajo, setDiasTrabajo] = useState([]);
 
   useEffect(() => {
-    // Llamar a la función para obtener la lista de obras sociales
     obtenerListaObrasSociales()
       .then((respuesta) => {
         if (respuesta && Array.isArray(respuesta)) {
-          // Almacena las obras sociales en el estado local
           setObrasSociales(respuesta);
         } else {
           Swal.fire(
@@ -37,21 +34,17 @@ const CrearMedico = () => {
       });
   }, []);
 
-  // Define la función para manejar cambios en los días de trabajo
   const handleDiasTrabajoChange = (event) => {
     const { value, checked } = event.target;
 
     if (checked) {
-      // Agrega el día seleccionado al array
       setDiasTrabajo([...diasTrabajo, value]);
     } else {
-      // Elimina el día seleccionado del array
       setDiasTrabajo(diasTrabajo.filter((dia) => dia !== value));
     }
   };
 
   const onSubmit = (medicoNuevo) => {
-    // Agrega los días de trabajo al objeto medicoNuevo
     medicoNuevo.diasTrabajo = diasTrabajo;
 
     crearMedico(medicoNuevo).then((respuesta) => {

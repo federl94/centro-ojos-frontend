@@ -54,7 +54,6 @@ const EditarMedico = () => {
   }, [id, setValue]);
 
   const onSubmit = (medicoEditado) => {
-    // Obtener los días seleccionados en un array
     const diasSeleccionados = Object.keys(getValues("diasTrabajo")).filter(
       (key) => getValues("diasTrabajo")[key]
     );
@@ -193,7 +192,7 @@ const EditarMedico = () => {
             label="Lunes"
             type="checkbox"
             {...register("diasTrabajo.Lunes")}
-            defaultChecked={diasTrabajo.includes("Lunes")} // Marcar el checkbox si el día está en el array
+            defaultChecked={diasTrabajo.includes("Lunes")}
           />
           <Form.Check
             inline
